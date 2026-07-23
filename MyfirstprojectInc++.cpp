@@ -11,9 +11,7 @@ struct stRoundInfo
     EnChoices layer1Choice;
     EnChoices computerchoice;
     EnWinner Winner ;
-    string WinnerName; 
-
-    
+    string WinnerName;
 };
 struct stGameResltsInfo
 {
@@ -197,23 +195,23 @@ void Restscreen()
 }
 void Gamestart()
 {
-    
     char PlayAgain='Y';
+    char ShowResulet;
     do
     {
     Restscreen();
     stGameResltsInfo gameResults=Playgame(HowManyRounds());
-    Restscreen();
-    ShowGameOnverScreen();
-    ShowFinalGameResult(gameResults);
-    
-        
+    cout<<"do you want to see the Final resulet Y/N?";
+    cin>>ShowResulet;
+    if(ShowResulet=='y'||ShowResulet=='Y')
+    {
+        Restscreen();
+      ShowGameOnverScreen();
+      ShowFinalGameResult(gameResults);
+    }
     cout<<endl<< Tabs(3)<<"Do you want to play again? [1]Yes.[2]No ?";
     cin>>PlayAgain;
-    
     } while(PlayAgain=='Y'|| PlayAgain=='y');
-    
-    
 }
 int main()
 {
